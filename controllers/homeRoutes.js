@@ -28,3 +28,50 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  router.get('/post/:id', async (req, res) => {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [
+            {model: Comment, attributes: ['content', 'date_created']},
+            {model: User,attributes: ['name']},
+        ],
+    });
+  
+      const post = postData.get({ plain: true });
+
+      res.status(200).json(post);
+  
+    //   res.render('project', {
+    //     ...project,
+    //     logged_in: req.session.logged_in
+    //   });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/comment/:id', async (req, res) => {
+    try {
+      const commentData = await Comment.findByPk(req.params.id, {
+        include: [
+            {model: Post, attributes: ['title','content', 'date_created']},
+            {model: User,attributes: ['name']},
+        ],
+    });
+  
+      const comment = commentData.get({ plain: true });
+
+      res.status(200).json(comment);
+  
+    //   res.render('project', {
+    //     ...project,
+    //     logged_in: req.session.logged_in
+    //   });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  
+  module.exports = router;
