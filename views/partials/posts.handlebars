@@ -1,0 +1,20 @@
+
+<div class="flex-column container post-feed"> 
+  {{#each posts as |post|}}
+    <ul class="list-group list-group-dividered list-group-full">
+      <li class="list-group-item">
+        <div class="media">
+          <div class="media-body row" data={{id}}>
+            <div class = "col">
+               <h4 class="media-heading">{{title}}</h4>
+            </div>
+            <div class = "col">
+              <p class="text-right small-text">{{user.name}} on {{date_created}}</p>
+            </div>
+            <div>{{content}}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  {{/each}}
+</div>
