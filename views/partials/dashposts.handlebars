@@ -2,7 +2,7 @@
 <div class="flex-column container post-feed"> 
   {{#each posts as |post|}}
     <ul class="list-group list-group-dividered list-group-full">
-      <li class="list-group-item">
+      <li class="list-group-item dash-feed">
         <div class="media">
           <div class="media-body row" data={{id}}>
             <div class = "col">
@@ -16,5 +16,8 @@
         </div>
       </li>
     </ul>
+    <button id="comment-btn">comment</button>
+    <button id="edit-btn">edit</button>
+    <button id="delete-btn">edit</button>
   {{/each}}
 </div>

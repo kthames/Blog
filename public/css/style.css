@@ -8,6 +8,22 @@
 .post-feed{
   margin-top: 2%;
 }
+
+.sign-up, 
+.login {
+  width: 60%;
+  margin-top: 5%;
+}
+.media-body {
+  margin-top: 2%;
+}
+
+.list-group-item {
+  background-color: aliceblue;
+}
+.list-group {
+  margin-top: 5%;
+}
   
 
   

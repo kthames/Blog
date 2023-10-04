@@ -1,0 +1,21 @@
+
+<div class="flex-column container post-feed"> 
+  {{#each posts as |post|}}
+    <ul class="list-group list-group-dividered list-group-full">
+      <li class="list-group-item dash-feed" data={{id}}>
+        <div class="media">
+          <div class="media-body row" >
+            <div class = "col">
+               <h4 class="media-heading">{{title}}</h4>
+            </div>
+            <div class = "col">
+              <p class="text-right small-text hidden"> <span style="display: none" id="username" >{{user.name}} on </span>{{date_created}}</p>
+            </div>
+            <div class = "hidden" style="display: none" id ="content">{{content}}</div>
+          </div>
+        </div>
+        <button class = "hidden" style="display: none" id="comment-btn">comment</button>
+      </li>
+    </ul>
+  {{/each}}
+</div>
