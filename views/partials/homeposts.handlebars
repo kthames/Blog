@@ -1,6 +1,6 @@
 
 <div class="flex-column container post-feed"> 
-  {{#each posts as |post|}}
+  {{#each posts}}
     <ul class="list-group list-group-dividered list-group-full">
       <li class="list-group-item dash-feed" data={{id}}>
         <div class="media">
@@ -14,7 +14,12 @@
             <div class = "hidden" style="display: none" id ="content">{{content}}</div>
           </div>
         </div>
-        <button class = "hidden" style="display: none" id="comment-btn">comment</button>
+        <button class = "hidden com-buttons" style="display: none" id="comment-btn">comment</button>
+        <button class = "hidden hide-buttons" style="display: none" id="hide-btn">hide</button>
+        
+        <div style="display: none" id ="comments">
+          {{>comments}}
+        </div>
       </li>
     </ul>
   {{/each}}

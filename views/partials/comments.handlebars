@@ -1,0 +1,31 @@
+
+<form class = "comment-form">
+  <div class="form-group">
+    <label for="comment-input">Add Comment: </label>
+    <input type="text" class="form-control" id="comment-input">
+  </div>
+  <button data={{id}} type="submit" class="btn btn-primary submit-buttons">submit</button>
+</form>
+
+{{#if comments}}
+  {{#each comments}}
+      <ul class="list-group list-group-dividered list-group-full">
+        <li class="list-group-item dash-feed" >
+          <div data={{../id}} class="media">
+            <div class="media-body row" >
+              <div class = "col">
+                <p id="username" >{{user_id}} on </p>
+              </div>
+              <div class = "col">
+                <p class="text-right small-text hidden"> {{format_date date_created}}</p>
+              </div>
+              <div class = "hidden" id ="content">{{content}}</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  {{/each}}
+{{else}}
+<p>No comments at this time</p>
+{{/if}}
+

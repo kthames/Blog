@@ -2,7 +2,15 @@
 
 {{>homeposts}}
 
-<script src="./js/homepage.js"></script>
+ <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  <script src="./js/homepage.js"></script>
+  <script src="./js/comments.js"></script>
+  {{/if}}
+
+
+
 
 
 
