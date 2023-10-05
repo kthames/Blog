@@ -1,6 +1,17 @@
 
 <div class="flex-column container post-feed"> 
-  <button class = "post-button" id="post-btn">New Post</button>
+
+  <button class = "show-new-post" style="display: " id="post-btn">New Post</button>
+  <form class = "comment-form">
+    <div class="form-group new-post-group" style="display: none">
+      <label for="title-post">Title:</label>
+      <input class="form-input" type="text" id="title-post" />
+      <label for="post-input">New Post: </label>
+      <textarea class="form-control" id="post-input" rows="3"></textarea>
+      <button type="submit" class="btn btn-primary submit-buttons post-button">submit</button>
+    </div>
+  </form>
+  
   {{#each posts}}
     <ul class="list-group list-group-dividered list-group-full">
       <li class="list-group-item dash-feed" data={{id}}>

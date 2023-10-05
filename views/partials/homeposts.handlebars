@@ -11,11 +11,11 @@
             <div class = "col">
               <p class="text-right small-text hidden"> <span style="display: none" id="username" >{{user.name}} on </span>{{format_date date_created}}</p>
             </div>
-            <div class = "hidden" style="display: none" id ="content">{{content}}</div>
+            <div style="display: none" id ="content">{{content}}</div>
           </div>
         </div>
-        <button class = "hidden com-buttons" style="display: none" id="comment-btn">comment</button>
-        <button class = "hidden hide-buttons" style="display: none" id="hide-btn">hide</button>
+        <button class = "com-buttons" style="display: none" id="comment-btn">comment</button>
+        <button class = "hide-buttons" style="display: none" id="hide-btn">hide</button>
         
         <div style="display: none" id ="comments">
           {{>comments}}
