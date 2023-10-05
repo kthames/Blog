@@ -1,23 +1,23 @@
 
 <div class="flex-column container post-feed"> 
-  {{#each posts as |post|}}
+  <button class = "post-button" id="post-btn">New Post</button>
+  {{#each posts}}
     <ul class="list-group list-group-dividered list-group-full">
-      <li class="list-group-item dash-feed">
+      <li class="list-group-item dash-feed" data={{id}}>
         <div class="media">
-          <div class="media-body row" data={{id}}>
+          <div class="media-body row" >
             <div class = "col">
                <h4 class="media-heading">{{title}}</h4>
             </div>
             <div class = "col">
-              <p class="text-right small-text">{{user.name}} on {{format_date date_created}}</p>
+              <p class="text-right small-text"> <span id="username" >{{user.name}} on </span>{{format_date date_created}}</p>
             </div>
-            <div>{{content}}</div>
+            <div class = "content" id ="content">{{content}}</div>
           </div>
         </div>
+        <button class = "edit-buttons" id="edit-btn">edit</button>
+        <button class = "delete-buttons" id="delete-btn">delete</button>
       </li>
     </ul>
-    <button id="comment-btn">comment</button>
-    <button id="edit-btn">edit</button>
-    <button id="delete-btn">edit</button>
   {{/each}}
 </div>

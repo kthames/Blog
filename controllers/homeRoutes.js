@@ -5,7 +5,10 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
-    const postData = await Post.findAll({include: [User, Comment]}); 
+    const postData = await Post.findAll({
+      include: [User, Comment], 
+      order: [['date_created', 'DESC']],
+    }); 
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -25,10 +28,19 @@ router.get('/', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
+    //const postData = await Post.findAll({include: [User]});
+
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
       },
+      include: [
+        {
+          model: User,
+          attributes: ['name', 'username'],
+        },
+      ],
+      order: [['date_created', 'DESC']],
     });
 
     // Serialize data so the template can read it
@@ -38,7 +50,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('dashboard', { 
       posts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id 
     });
   } catch (err) {
     res.status(500).json(err);
