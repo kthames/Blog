@@ -27,11 +27,9 @@ const newPostHandler = async (event) =>  {
           } else {
             alert('Failed to post comment');
           }
-
     }
-
-    showPostHandler();
     
+    showPostHandler();
 };
 
 const showEditHandler = async (event) => {
@@ -92,12 +90,21 @@ const editHandler = async (event) => {
 const deleteHandler = async (event) => {
     event.preventDefault();
 
+    if (event.target.hasAttribute('data')) {
+      const id = event.target.getAttribute('data');
+  
+      const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE',
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to delete post');
+      }
+    }
+
 };
-
-
-
-
-
 
 const showEditButtons = document.getElementsByClassName('edit-buttons');
 let i5 = 1;
