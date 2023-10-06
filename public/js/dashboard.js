@@ -84,7 +84,6 @@ const editHandler = async (event) => {
           console.log(response.statusText);
         }
     }
-
 };
 
 const deleteHandler = async (event) => {
