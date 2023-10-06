@@ -9,14 +9,15 @@
                <h4 class="media-heading">{{title}}</h4>
             </div>
             <div class = "col">
-              <p class="text-right small-text hidden"> <span style="display: none" id="username" >{{user.name}} on </span>{{format_date date_created}}</p>
+              <p class="text-right small-text hidden"> <span style="display: none" id="username" >@{{user.name}} on </span>{{format_date date_created}}</p>
             </div>
             <div style="display: none" id ="content">{{content}}</div>
           </div>
         </div>
-        <button class = "com-buttons" style="display: none" id="comment-btn">comment</button>
-        <button class = "hide-buttons" style="display: none" id="hide-btn">hide</button>
-        
+        <div class = "home-buttons">
+          <button class = "com-buttons" style="display: none" id="comment-btn">comment</button>
+          <button class = "hide-buttons" style="display: none" id="hide-btn">hide</button>
+        </div>
         <div style="display: none" id ="comments">
           {{>comments}}
         </div>
