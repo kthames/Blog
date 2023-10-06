@@ -12,8 +12,8 @@ const newPostHandler = async (event) =>  {
     showPostButton.style.display = "";
     postGroup.style.display = "none";
 
-    content = document.querySelector('#post-input').value.trim();
-    title = document.querySelector('#title-post').value.trim();
+    content = document.querySelector('#post-input').value;
+    title = document.querySelector('#title-post').value;
 
     if(content && title) {
         const response = await fetch('/api/posts', {
