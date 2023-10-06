@@ -14,19 +14,22 @@
   
   {{#each posts}}
     <ul class="list-group list-group-dividered list-group-full">
-      <li class="list-group-item dash-feed" data={{id}}>
+      <li class="list-group-item dash-feed" >
         <div class="media">
-          <div class="media-body row" >
+          <div class="media-body row">
             <div class = "col">
-               <h4 class="media-heading">{{title}}</h4>
+               <h4 class="media-heading" id="dash-title" style="display: ">{{title}}</h4>
+               <textarea id="edit-title" rows="1" style="display: none">{{title}}</textarea>
             </div>
             <div class = "col">
               <p class="text-right small-text"> <span id="username" >{{user.name}} on </span>{{format_date date_created}}</p>
             </div>
-            <div class = "content" id ="content">{{content}}</div>
+            <div class = "content" id ="dash-content" style="display: ">{{content}}</div>
+            <textarea id="edit-content" rows="3" style="display: none">{{content}}</textarea>
           </div>
         </div>
-        <button class = "edit-buttons" id="edit-btn">edit</button>
+        <button class = "edit-buttons" id="edit-btn" style="display: ">edit</button>
+        <button class = "edit-post" id="submit-edit-btn" data={{id}} style="display: none">submit</button>
         <button class = "delete-buttons" id="delete-btn">delete</button>
       </li>
     </ul>
