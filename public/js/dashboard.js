@@ -66,8 +66,8 @@ const editHandler = async (event) => {
     event.currentTarget.style.display = "none";
     event.currentTarget.previousElementSibling.style.display = "";
 
-    const content_post = newContent.value.trim();
-    const title_post = newTitle.value.trim();
+    const content_post = newContent.value;
+    const title_post = newTitle.value;
     const post_id = parseInt(event.currentTarget.getAttribute("data"));
 
     if (title_post && content_post && post_id) {
